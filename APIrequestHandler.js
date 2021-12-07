@@ -19,20 +19,37 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
           
            const responseElement = document.getElementById("displayResponse");
            responseElement.innerHTML="";
-           const cityElement = document.createElement("h1");
+           responseElement.style.display= "block";
+           const cityElement = document.createElement("h2");
            cityElement.innerHTML = obj.name;
            responseElement.appendChild(cityElement);
+
+           const descElement = document.createElement("h3") ;
+           descElement.innerHTML = obj.weather[0].description;
+           responseElement.appendChild(descElement);
+           console.log(descElement);
         
            const imgElement = document.createElement("img");
           
            imgElement.src ="http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
            imgElement.width = 100;
+           //imgElement.height = 100;
            responseElement.appendChild(imgElement);
-                    
+           
+           
+
            const temp = Math.round(obj.main.temp -273.15);
-           const tempElement = document.createElement("h2") ;
-           tempElement.innerHTML = temp+"°C";
+           const tempElement = document.createElement("h3") ;
+           
+           tempElement.innerHTML = temp + "&#8451;";
            responseElement.appendChild(tempElement);
+
+           
+           const realFeel = Math.round(obj.main.feels_like -273.15);
+           const realFeelElement = document.createElement("h3") ;
+           
+           realFeelElement.innerHTML = "RealFeel  "+realFeel + "&#8451;";
+           responseElement.appendChild(realFeelElement);
           
         }
         else {
