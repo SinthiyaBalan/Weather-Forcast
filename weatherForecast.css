@@ -25,26 +25,3 @@ body {
     margin-left: 470px;
 
   }
-  .grid-container {
-    display: grid;
-    grid-template-areas: 'location location'
-    'weather-icon temp';
-    width: 500px;
-    margin-top: 40px;
-    height: 200px;
-    align-content: center;
-    grid-template-columns: 1fr 1fr ;
-    grid-gap: 10px;
-    background-color: green;
-    padding: 100px;
-  }
-  .location {grid-area: location;}
-  .temp{ grid-area: temp;}
-  .icon {grid-area: weather-icon;}
-  
-  /* .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-  } */

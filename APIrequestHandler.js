@@ -3,6 +3,7 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
   // stop form submission
   event.preventDefault();
   
+  const apikey = "5ad761e2beb630fe822fee4fcd952cf4";
   const zip = document.getElementById("weatherForm").zipcode.value;
   if(isNaN(zip)) {
     alert("Zip code is not a valid Number!");
@@ -56,13 +57,15 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
           const responseElement = document.getElementById("displayResponse");
           responseElement.innerHTML="";
           const errorElement = document.createElement("h4");
-          errorElement.innerHTML = "Error. City not found!";
+          errorElement.innerHTML = "City not found!";
           responseElement.appendChild(errorElement);
         }
       }
         
     }
-    xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?zip="+zip+",DE&appid=5ad761e2beb630fe822fee4fcd952cf4");
+    // xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?zip="+zip+",DE&appid=5ad761e2beb630fe822fee4fcd952cf4");
+    
+    xhttp.open("GET", `https://api.openweathermap.org/data/2.5/weather?zip=${zip},DE&appid=${apikey}`);
     xhttp.send();
     
 });
