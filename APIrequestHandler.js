@@ -37,20 +37,23 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
            //imgElement.height = 100;
            responseElement.appendChild(imgElement);
            
-           
-
            const temp = Math.round(obj.main.temp -273.15);
            const tempElement = document.createElement("h3") ;
            
            tempElement.innerHTML = temp + "&#8451;";
            responseElement.appendChild(tempElement);
 
-           
            const realFeel = Math.round(obj.main.feels_like -273.15);
            const realFeelElement = document.createElement("h3") ;
            
            realFeelElement.innerHTML = "RealFeel  "+realFeel + "&#8451;";
            responseElement.appendChild(realFeelElement);
+
+           const dateTime = new Date().toLocaleString();
+           const dateTimeElement = document.createElement("h4") ;
+           dateTimeElement.innerHTML = dateTime;
+           responseElement.appendChild(dateTimeElement);
+            console.log(dateTime);
           
         }
         else {
@@ -63,7 +66,6 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
       }
         
     }
-    // xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?zip="+zip+",DE&appid=5ad761e2beb630fe822fee4fcd952cf4");
     
     xhttp.open("GET", `https://api.openweathermap.org/data/2.5/weather?zip=${zip},DE&appid=${apikey}`);
     xhttp.send();
