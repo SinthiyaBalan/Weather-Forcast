@@ -3,7 +3,7 @@ document.querySelector("#weatherForm").addEventListener("submit", function (even
   // stop form submission
   event.preventDefault();
   
-  const apikey = "5ad761e2beb630fe822fee4fcd952cf4";
+  const apikey = "Type your own API key"; //Please enter your api key 
   const zip = document.getElementById("weatherForm").zipcode.value;
   if(isNaN(zip)) {
     alert("Zip code is not a valid Number!");
